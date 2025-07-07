@@ -13,7 +13,7 @@ starting point for your own robot projects.
 ## Required Arduino Libraries
 
 - **ESP8266WiFi**
-- **ESP8266mDNS**
+- **ESP8266mDNS** (built in)
 - **ESPAsyncWebServer**
 - **ESPAsyncTCP**
 - **Servo** (built in)

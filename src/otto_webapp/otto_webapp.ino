@@ -18,9 +18,9 @@ const int servo2Pin = 4;
 
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-  <meta charset=\"UTF-8\">
+  <meta charset="UTF-8">
   <title>Otto Web Control</title>
   <style>
     body {
@@ -56,11 +56,11 @@ const char index_html[] PROGMEM = R"rawliteral(
   </script>
 </head>
 <body>
-  <div id=\"controls\">
-    <button id=\"forward\" onclick=\"sendCmd('forward')\">&#9650;</button>
-    <button id=\"left\" onclick=\"sendCmd('left')\">&#9664;</button>
-    <button id=\"right\" onclick=\"sendCmd('right')\">&#9654;</button>
-    <button id=\"backward\" onclick=\"sendCmd('backward')\">&#9660;</button>
+  <div id="controls">
+    <button id="forward" onclick="sendCmd('forward')">&#9650;</button>
+    <button id="left" onclick="sendCmd('left')">&#9664;</button>
+    <button id="right" onclick="sendCmd('right')">&#9654;</button>
+    <button id="backward" onclick="sendCmd('backward')">&#9660;</button>
   </div>
 </body>
 </html>
