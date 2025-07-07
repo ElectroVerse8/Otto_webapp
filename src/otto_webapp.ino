@@ -69,6 +69,7 @@ const char index_html[] PROGMEM = R"rawliteral(
 
 void handleCommand(AsyncWebServerRequest* request){
   String move = request->arg("move");
+  Serial.println(move);  // log incoming command for debugging
   if (move == "forward") {
     // TODO: implement forward motion sequence
   } else if (move == "backward") {
