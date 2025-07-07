@@ -3,8 +3,9 @@
 This project provides a simple web application for controlling an ESP8266 based
 robot named **Otto**.  The ESP8266 acts as a Wi‑Fi access point and serves a
 web page with buttons to send motion commands such as forward, backward, left,
-right and a couple of preset moves.  The HTML interface lives in the
-`data/` folder and is uploaded to LittleFS on the board.
+right and a couple of preset moves.  The interface is now built directly into
+the sketch so the project can be compiled and uploaded without any extra data
+files.
 
 The sketch has been kept intentionally small so that it can be used as a
 starting point for your own robot projects.
@@ -16,7 +17,6 @@ starting point for your own robot projects.
 - **ESPAsyncWebServer**
 - **ESPAsyncTCP**
 - **Servo** (built in)
-- **LittleFS** (filesystem used to host the web page)
 
 ## Installing with the Arduino IDE
 
@@ -27,12 +27,10 @@ starting point for your own robot projects.
 3. Copy the entire project folder (`Otto_webapp`) into your Arduino
    sketchbook.
 4. Open `src/otto_webapp.ino` in the Arduino IDE.
-5. Use the "ESP8266 Sketch Data Upload" tool to upload the contents of the
-   `data/` folder to LittleFS.
-6. Select your ESP8266 board and click **Upload** to flash the sketch.
-7. After boot the board creates a Wi‑Fi network named `OTTO_AP` with password
+5. Select your ESP8266 board and click **Upload** to flash the sketch.
+6. After boot the board creates a Wi‑Fi network named `OTTO_AP` with password
    `password`.
-8. Connect to this network with your phone and open
+7. Connect to this network with your phone and open
    [`http://otto.local/`](http://otto.local/) in a browser. The mDNS responder
    announces the device as `otto.local` so no IP address is required.
 
