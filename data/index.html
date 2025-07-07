@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Otto Web Control</title>
+<style>
+  button { width:100px;height:60px;font-size:20px;margin:10px; }
+</style>
+<script>
+function sendCmd(cmd) {
+  fetch('/cmd?move=' + cmd);
+}
+</script>
+</head>
+<body>
+<h1>Otto Control</h1>
+<button onclick="sendCmd('forward')">Forward</button>
+<button onclick="sendCmd('left')">Left</button>
+<button onclick="sendCmd('right')">Right</button>
+<button onclick="sendCmd('backward')">Backward</button>
+<button onclick="sendCmd('wave')">Wave</button>
+<button onclick="sendCmd('dance')">Dance</button>
+</body>
+</html>

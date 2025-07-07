@@ -1,0 +1,7 @@
+1. Install the ESP8266 board package in the Arduino IDE.
+2. Install required libraries listed in README.md.
+3. Copy this folder to your Arduino sketchbook and open `src/otto_webapp.ino`.
+4. Upload the files in the `data/` directory to LittleFS using the "ESP8266 Sketch Data Upload" tool.
+5. Compile and upload the sketch to the ESP8266.
+6. After reboot the board will create an access point `OTTO_AP` (password `password`).
+7. Connect to this AP and open http://otto.local/ in your browser to control the robot.
