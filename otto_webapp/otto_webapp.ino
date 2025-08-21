@@ -5,11 +5,13 @@
 #include <Otto.h>
 Otto Otto;
 
-#define LeftLeg 2 
-#define RightLeg 3
-#define LeftFoot 4 
-#define RightFoot 5 
-#define Buzzer  13 
+#define LeftLeg 18 
+#define RightLeg 14
+#define LeftFoot 16 
+#define RightFoot 13 
+#define Buzzer  17 
+#define Trigger 27
+#define Echo 26 
 
 // Wi-Fi AP creds
 const char* ssid     = "OTTO_AP";
@@ -110,38 +112,37 @@ void handleCommand(AsyncWebServerRequest* request){
 
 // === Motion routines (fill in your timings/angles) ===
 void doForward() {
-  Serial.println(">> doForward");
   Otto.walk(2,1000,1);
-  Otto.home();
 }
 void doBackward() {
-  Serial.println(">> doBackward");
   Otto.walk(2,1000,-1);
-  Otto.home();
 }
 void doLeft() {
-  Serial.println(">> doLeft");
   Otto.turn(2,1000,1);
-  Otto.home();
 }
 void doRight() {
-  Serial.println(">> doRight");
   Otto.turn(2,1000,-1);
-  Otto.home();
 }
 void doAvoid() {
-  Serial.println(">> doAvoid");
 }
 void doJump() {
-  Serial.println(">> doJump");
   Otto.jump(1,500);
-  Otto.home();
 }
 void doFlapping() {
-  Serial.println(">> doFlapping");
   Otto.flapping(2, 1000, 20,1);
   Otto.flapping(2, 1000, 20,-1);
-  Otto.home();
+}
+
+long ultrasound() {
+   long duration, distance;
+   digitalWrite(Trigger,LOW);
+   delayMicroseconds(2);
+   digitalWrite(Trigger, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(Trigger, LOW);
+   duration = pulseIn(Echo, HIGH);
+   distance = duration/58;
+   return distance;
 }
 
 void setup(){
@@ -164,6 +165,8 @@ void setup(){
 
   //Otto setup
   Otto.init(LeftLeg, RightLeg, LeftFoot, RightFoot, true, Buzzer); //Set the servo pins and Buzzer pin
+  pinMode(Trigger, OUTPUT); 
+  pinMode(Echo, INPUT);
   Otto.home();
 }
 
@@ -178,5 +181,7 @@ void loop(){
     else if (motionCommand == "avoid")    doAvoid();
     else if (motionCommand == "jump")     doJump();
     else if (motionCommand == "flapping") doFlapping();
+    Serial.println("Handeled.");
+    Otto.home();
   }
 }
